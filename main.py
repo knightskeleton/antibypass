@@ -51,5 +51,6 @@ def process_redirect():
 
     return render_template_string(COUNTDOWN_HTML, final_url=url)
 
-if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+if __name__ == "__main__":
+    from waitress import serve
+    serve(app, host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
